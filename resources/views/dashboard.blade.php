@@ -2,33 +2,23 @@
 
 @section('content')
 <div class="container">
-    <h2 class="my-4">Feature Report Dashboard</h2>
+    <h2 class="">Feature Report Dashboard</h2>
     <div class="card p-4">
         <h4 class="mb-3">Subject Score Distribution</h4>
-        <!-- Canvas để hiển thị biểu đồ -->
         <canvas id="scoreChart" width="800" height="400"></canvas>
     </div>
 </div>
+
 @endsection
 
 @section('scripts')
-    <!-- Tải Chart.js từ CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Dữ liệu report được truyền từ Controller dưới dạng mảng PHP
-            // Ví dụ: 
-            // $report = [
-            //   'toan'    => ['level1' => 10, 'level2' => 5, 'level3' => 3, 'level4' => 2],
-            //   'ngu_van' => ['level1' => 8, 'level2' => 7, 'level3' => 4, 'level4' => 1],
-            //   ...
-            // ];
             const report = {!! json_encode($report) !!};
 
-            // Lấy danh sách các môn học (keys của report)
             const subjects = Object.keys(report);
 
-            // Tạo mảng dữ liệu cho từng mức cho mỗi môn
             const level1Data = subjects.map(subject => report[subject]['level1']);
             const level2Data = subjects.map(subject => report[subject]['level2']);
             const level3Data = subjects.map(subject => report[subject]['level3']);
@@ -40,8 +30,8 @@
                     {
                         label: 'Level 1 (>= 8)',
                         data: level1Data,
-                        backgroundColor: 'rgba(75, 192, 192, 0.7)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 102, 0.7)',
+                        borderColor: 'rgba(75, 192, 102, 0.7)',
                         borderWidth: 1
                     },
                     {
@@ -69,7 +59,7 @@
             };
 
             const config = {
-                type: 'bar', // Kiểu biểu đồ cột
+                type: 'bar',
                 data: data,
                 options: {
                     responsive: true,
@@ -84,13 +74,13 @@
                     },
                     scales: {
                         x: {
-                            stacked: true, // Xếp chồng dữ liệu trên trục X
+                            stacked: true, 
                         },
                         y: {
                             beginAtZero: true,
-                            stacked: true, // Xếp chồng dữ liệu trên trục Y
+                            stacked: true, 
                             ticks: {
-                                precision: 0 // Hiển thị số nguyên
+                                precision: 0 
                             }
                         }
                     }

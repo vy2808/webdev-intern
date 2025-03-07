@@ -10,8 +10,8 @@ class Score extends Model
     use HasFactory;
 
     protected $table = 'scores';
-    protected $primaryKey = 'sbd'; // Đặt sbd làm khóa chính nếu cần
-    public $incrementing = false; // Vì sbd không phải số tự động tăng
+    protected $primaryKey = 'sbd'; 
+    public $incrementing = false;
 
     protected $fillable = [
         'sbd', 'toan', 'ngu_van', 'ngoai_ngu', 'vat_li', 'hoa_hoc', 'sinh_hoc',
