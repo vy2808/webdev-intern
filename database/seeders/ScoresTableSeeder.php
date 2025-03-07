@@ -16,8 +16,6 @@ class ScoresTableSeeder extends Seeder
    
     public function run()
     {
-        DB::table('scores')->truncate(); // Xóa dữ liệu cũ
-
         DB::table('scores')->insert([
             ['sbd' => '1000001', 'toan' => 8.4, 'ngu_van' => 6.75, 'ngoai_ngu' => 8, 'vat_li' => 6, 'hoa_hoc' => 5.25, 'sinh_hoc' => 5, 'lich_su' => null, 'dia_li' => null, 'gdcd' => null, 'ma_ngoai_ngu' => 'N1'],
             ['sbd' => '1000002', 'toan' => 8.6, 'ngu_van' => 8.5, 'ngoai_ngu' => 7.2, 'vat_li' => null, 'hoa_hoc' => null, 'sinh_hoc' => null, 'lich_su' => 7.25, 'dia_li' => 6, 'gdcd' => 8, 'ma_ngoai_ngu' => 'N1'],

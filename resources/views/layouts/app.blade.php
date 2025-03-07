@@ -87,7 +87,6 @@
             <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'fw-bold' : '' }}">Dashboard</a>
             <a href="{{ route('search-scores') }}" class="{{ request()->routeIs('search-scores') ? 'fw-bold' : '' }}">Search Scores</a>
             <a href="{{ route('ranks') }}" class="{{ request()->routeIs('ranks') ? 'fw-bold' : '' }}">Ranks</a>
-            <a href="#" class="{{ request()->routeIs('settings') ? 'fw-bold' : '' }}">Settings</a>
         </div>
 
         <div class="content">

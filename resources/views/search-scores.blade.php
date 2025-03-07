@@ -27,13 +27,12 @@
         $(document).ready(function () {
             console.log('jQuery Loaded:', typeof $);
 
-            // Sự kiện click cho nút Submit
             $(document).on('click', '#search_score', function () {
                 console.log('Button Clicked!');
 
                 var sbd = $('#sbd_input').val().trim();
                 if (sbd === '') {
-                    alert('Vui lòng nhập số báo danh');
+                    alert('Please enter your registration number!!');
                     return;
                 }
 
@@ -50,36 +49,33 @@
                         if (response.success) {
                             var scores = response.data;
                             var scoreHtml = `
-                                <strong>SBD:</strong> ${scores.sbd} <br>
-                                <strong>Toán:</strong> ${scores.toan ?? 'N/A'} <br>
-                                <strong>Ngữ Văn:</strong> ${scores.ngu_van ?? 'N/A'} <br>
-                                <strong>Ngoại Ngữ:</strong> ${scores.ngoai_ngu ?? 'N/A'} <br>
-                                <strong>Vật Lý:</strong> ${scores.vat_li ?? 'N/A'} <br>
-                                <strong>Hóa Học:</strong> ${scores.hoa_hoc ?? 'N/A'} <br>
-                                <strong>Sinh Học:</strong> ${scores.sinh_hoc ?? 'N/A'} <br>
-                                <strong>Lịch Sử:</strong> ${scores.lich_su ?? 'N/A'} <br>
-                                <strong>Địa Lý:</strong> ${scores.dia_li ?? 'N/A'} <br>
-                                <strong>GDCD:</strong> ${scores.gdcd ?? 'N/A'} <br>
-                                <strong>Mã Ngoại Ngữ:</strong> ${scores.ma_ngoai_ngu ?? 'N/A'} <br>
+                                <strong>Registration Number:</strong> ${scores.sbd} <br>
+                                <strong>Math:</strong> ${scores.toan ?? 'N/A'} <br>
+                                <strong>Literature:</strong> ${scores.ngu_van ?? 'N/A'} <br>
+                                <strong>Foreign language:</strong> ${scores.ngoai_ngu ?? 'N/A'} <br>
+                                <strong>Physics:</strong> ${scores.vat_li ?? 'N/A'} <br>
+                                <strong>Chemistry:</strong> ${scores.hoa_hoc ?? 'N/A'} <br>
+                                <strong>Biology:</strong> ${scores.sinh_hoc ?? 'N/A'} <br>
+                                <strong>History:</strong> ${scores.lich_su ?? 'N/A'} <br>
+                                <strong>Geography:</strong> ${scores.dia_li ?? 'N/A'} <br>
+                                <strong>Civic Education:</strong> ${scores.gdcd ?? 'N/A'} <br>
+                                <strong>Foreign language code:</strong> ${scores.ma_ngoai_ngu ?? 'N/A'} <br>
                                 <button id="clear_result" class="btn btn-secondary mt-3">Clear</button>
                             `;
                             $('#score_result').html(scoreHtml);
                         } else {
-                            $('#score_result').html('<strong>Không tìm thấy kết quả</strong>');
+                            $('#score_result').html('<strong>No results found!</strong>');
                         }
                     },
                     error: function (xhr, status, error) {
-                        console.error('Lỗi AJAX:', xhr.status, error);
-                        $('#score_result').html('<strong>Lỗi khi lấy dữ liệu</strong>');
+                        $('#score_result').html('<strong>Error data.</strong>');
                     }
                 });
             });
 
-            // Sự kiện click cho nút Clear (được thêm sau khi kết quả hiển thị)
             $(document).on('click', '#clear_result', function () {
                 console.log('Clear Button Clicked!');
-                $('#sbd_input').val(''); // Xóa nội dung ô input
-                // Reset lại phần kết quả
+                $('#sbd_input').val('');
                 $('#score_result').html('<p>Enter a registration number to see scores.</p>');
             });
         });

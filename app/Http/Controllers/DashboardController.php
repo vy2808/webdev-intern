@@ -9,10 +9,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // Danh sách các môn học cần thống kê
         $subjects = ['toan', 'ngu_van', 'ngoai_ngu', 'vat_li', 'hoa_hoc', 'sinh_hoc', 'lich_su', 'dia_li', 'gdcd'];
         
-        // Khởi tạo mảng báo cáo cho từng môn học với 4 mức điểm
         $report = [];
         foreach ($subjects as $subject) {
             $report[$subject] = [
@@ -22,11 +20,9 @@ class DashboardController extends Controller
                 'level4' => 0, // < 4
             ];
         }
-        
-        // Lấy tất cả các hồ sơ điểm
+
         $scores = Score::all();
         
-        // Với mỗi hồ sơ, duyệt qua từng môn và phân loại theo mức điểm nếu giá trị không null
         foreach ($scores as $score) {
             foreach ($subjects as $subject) {
                 $value = $score->{$subject};

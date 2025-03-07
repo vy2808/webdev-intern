@@ -9,7 +9,7 @@ class ScoreController extends Controller
 {
     public function getScore(Request $request)
     {
-        $sbd = $request->query('sbd'); // Lấy SBD từ request
+        $sbd = $request->query('sbd'); 
         $score = Score::where('sbd', $sbd)->first();
 
         if ($score) {
