@@ -6,7 +6,7 @@
             <h3>User Registration</h3>
             <label>Registration Number</label>
             <div class="d-flex flex-column flex-md-row">
-                <input type="text" id="sbd_input" class="form-control w-100 w-md-50 mb-2 mb-md-0" placeholder="Enter registration number">
+                <input type="number" id="sbd_input" class="form-control w-100 w-md-50 mb-2 mb-md-0" placeholder="Enter registration number">
                 <button id="search_score" class="btn btn-dark ms-md-2">Submit</button>
             </div>
         </div>
