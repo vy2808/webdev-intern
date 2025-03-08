@@ -40,7 +40,6 @@ class DashboardController extends Controller
             }
         }
         
-        // Truyền dữ liệu báo cáo vào view
         return view('dashboard', compact('report'));
     }
 

@@ -15,20 +15,11 @@ use App\Http\Controllers\TopStudentController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-
 Route::get('/search-scores', function () {
     return view('search-scores');
 })->name('search-scores');
-
-Route::get('/ranks', function () {
-    return view('ranks');
-})->name('ranks');
-
 Route::get('/get-score', [ScoreController::class, 'getScore'])->name('get.score');
+
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/ranks', [TopStudentController::class, 'ranks'])->name('ranks');
